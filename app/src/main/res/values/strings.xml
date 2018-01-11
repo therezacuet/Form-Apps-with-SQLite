@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">SQLite MCC</string>
+    <string name="hint_name">Full Name</string>
+    <string name="hint_age">Age</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_phone">Phone No</string>
+    <string name="hint_image">Image</string>
+    <string name="btn_sign_up">Save</string>
+    <string name="err_msg_name">Enter your full name</string>
+    <string name="err_msg_email">Enter valid email address</string>
+    <string name="err_msg_phone">Enter the phone no</string>
+    <string name="err_msg_age">Enter the Age</string>
+    <string name="err_msg_image">Add Image</string>
+</resources>
