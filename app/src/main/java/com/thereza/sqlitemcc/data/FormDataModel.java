@@ -12,7 +12,8 @@ public class FormDataModel {
     private String email;
     private byte[] imageData;
 
-    public FormDataModel(int id, String name, String age, String phone, String email,byte[] imageData) {
+
+    public FormDataModel(String name, String age, String phone, String email) {
         super();
         this.id = id;
         this.name = name;
@@ -20,6 +21,7 @@ public class FormDataModel {
         this.phone = phone;
         this.email = email;
         this.imageData=imageData;
+
     }
     public FormDataModel(String name, String age, String phone, String email, byte[] imageData) {
         super();
@@ -28,6 +30,7 @@ public class FormDataModel {
         this.phone = phone;
         this.email = email;
         this.imageData=imageData;
+
     }
 
     public int getId() {
@@ -77,6 +80,5 @@ public class FormDataModel {
     public void setImageData(byte[] imageData) {
         this.imageData = imageData;
     }
-
 
 }

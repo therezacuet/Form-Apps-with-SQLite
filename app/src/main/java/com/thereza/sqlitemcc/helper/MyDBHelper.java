@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.thereza.sqlitemcc.data.FormDataModel;
 
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 public class MyDBHelper extends SQLiteOpenHelper {
     public static MyDBHelper sInstance;
 
+    public Context context;
     public static final String DB_NAME = "sqlite_db";
     public static final int DB_VERSION = 1;
     private SQLiteDatabase mDb;
@@ -38,6 +40,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
 
     public MyDBHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
+        this.context=context;
     }
 
     public static MyDBHelper getInstance(Context context) {
@@ -85,10 +88,9 @@ public class MyDBHelper extends SQLiteOpenHelper {
 
         // String[] columns={NAME_FIELD, EMAIL_FIELD, PHONE_FIELD};
         // SELECT * FROM EMPLOYEE;
-        Cursor cursor = db.query(DB_TABLE, null, null, null, null, null,
-                null);
+        //Cursor cursor = db.query(DB_TABLE, null, null, null, null, null,null,AGE_FIELD+ " ASC");
 
-        // Cursor cursor = db.rawQuery("SELECT * FROM EMPLOYEE", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM testData ORDER BY age", null);
         if (cursor != null && cursor.getCount() > 0) {
             cursor.moveToFirst();
             for (int i = 0; i < cursor.getCount(); i++) {
@@ -108,6 +110,9 @@ public class MyDBHelper extends SQLiteOpenHelper {
                 allStudents.add(st);
                 cursor.moveToNext();
             }
+        }
+        else {
+            Toast.makeText(context,"No Data Found! Please Insert Data!",Toast.LENGTH_LONG).show();
         }
         cursor.close();
         db.close();
